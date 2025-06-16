@@ -1,5 +1,5 @@
 
-<%@taglib prefix="e" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="model.Employee" %>
 <%@page import="dao.EmpDao" %>
 <%@page import="java.util.*" %>
@@ -15,7 +15,7 @@
 <div class="container">
 
 
-    <h1 class="text-primary text-center">Employee Form</h1> 
+    <h1 class="text-primary text-center">Employee Data</h1> 
 
     <table class="table table-striped">
 
@@ -47,8 +47,8 @@
                 <td>${e.getDesignation()}</td>
                 <td>${e.getSalary()}</td>
                 <td>
-                    <a href="editemployeeform.jsp?id=${s.id}" class="btn btn-primary">Edit</a>
-                    <a href="deleteemployee.jsp?id=${s.id}" class="btn btn-danger" 
+                    <a href="editemployeeform.jsp?id=${e.id}" class="btn btn-primary">Edit</a>
+                    <a href="deleteemployee.jsp?id=${e.id}" class="btn btn-danger" 
                        onclick="return confirm('Are you sure you want to delete this student?');">Delete</a>   
 
                 </td>

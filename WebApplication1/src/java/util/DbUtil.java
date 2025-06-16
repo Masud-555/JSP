@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.apache.tomcat.dbcp.dbcp2.SQLExceptionList;
+
 
 
 public class DbUtil {

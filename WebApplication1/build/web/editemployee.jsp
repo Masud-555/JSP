@@ -1,17 +1,8 @@
-<%-- 
-    Document   : editemployee
-    Created on : Jun 15, 2025, 6:54:33 PM
-    Author     : Admin
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<jsp:useBean class="model.Employee" id="masud"/>
+<%@page import="dao.EmpDao" %>
+<jsp:setProperty name="masud" property="*"/>
+
+<%
+    
+        int result =EmpDao.
