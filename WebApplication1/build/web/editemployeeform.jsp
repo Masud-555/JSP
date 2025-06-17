@@ -18,7 +18,7 @@
         <h1 class="jumborton">Update Employee</h1>
     </div>
     <!--    start form-->
-    <form action="editemployee.jsp"  method="post">
+    <form action="index.jsp"  method="post">
         <input type="hidden" name="id" value="<%=e.getId()%>" />
         <div class="row">
             <div class="col-md-6">
@@ -26,10 +26,6 @@
                 <input type="text" class="form-control" id="name" name="name" value="<%=e.getName()%>" placeholder="Full Name">
             </div>
 
-<!--            <div class="col-md-6">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="text" class="form-control" id="email" name="email" value="<%=e.getEmail()%>" placeholder="example@gmail.com">
-            </div>        -->
         </div>
         <!-- start 2nd row-->
         <div class="row mt-3">
@@ -37,10 +33,13 @@
                 <label  class="form-label">Designation</label>
                 <select class="form-select" name="designation" aria-label="Default select example">
                     <option disabled=" ">Select One</option>
+                    <option value="CEO" <%= "CEO".equals(e.getDesignation()) ? "selected" : ""%>>CEO</option> 
                     <option value="Manager" <%= "Manager".equals(e.getDesignation()) ? "selected" : ""%>>Manager</option>
                     <option value="Programmer" <%= "Programmer".equals(e.getDesignation()) ? "selected" : ""%>>Programmer</option>
+                    <option value="Admin" <%= "Admin".equals(e.getDesignation()) ? "selected" : ""%>>Admin</option>
                     <option value="Cashier" <%= "Cashier".equals(e.getDesignation()) ? "selected" : ""%>>Cashier</option>
                     <option value="User" <%= "User".equals(e.getDesignation()) ? "selected" : ""%>>User</option>                    
+                                       
                 </select>
             </div>
 
