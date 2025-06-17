@@ -1,17 +1,13 @@
-<%-- 
-    Document   : deleteemployee
-    Created on : Jun 15, 2025, 6:55:01 PM
-    Author     : Admin
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<jsp:useBean class="model.Employee" id="de" />
+<%@page import="dao.EmpDao" %>
+<jsp:setProperty  name="de" property="*" />
+
+<%  
+
+        EmpDao.deleteEmployee(de.getId());
+        
+        response.sendRedirect("index.jsp");
+        
+
+%>

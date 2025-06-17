@@ -5,4 +5,14 @@
 
 <%
     
-        int result =EmpDao.
+        int result =EmpDao.updateEmployee(masud);
+        if(result > 0){
+            response.sendRedirect("index.jsp");
+    
+        }
+        else{
+             response.sendRedirect("error.jsp");
+    
+    }
+    
+%>

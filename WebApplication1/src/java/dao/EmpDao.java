@@ -76,7 +76,7 @@ public class EmpDao {
 
     }
 
-    public static void deletEmployee(int id) {
+    public static void deleteEmployee(int id) {
 
         sql = "delete from employee where id = ?";
 
@@ -96,39 +96,64 @@ public class EmpDao {
     }
 
     public static Employee getById(int id) {
-        
+
         Employee e = null;
-        
+
         sql = "select * from employee where id=?";
-        
+
         try {
-            
+
             ps = DbUtil.getCon().prepareStatement(sql);
-            
+
             ps.setInt(1, id);
-            
+
             rs = ps.executeQuery();
-            
-            while(rs.next()){
-            
+
+            while (rs.next()) {
+
                 e = new Employee(
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("designation"),
-                        rs.getFloat("salary")       
-                
+                        rs.getFloat("salary")
                 );
-            
+
             }
             rs.close();
             ps.close();
             DbUtil.getCon().close();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(EmpDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return e;
+    }
+
+    public static int updateEmployee(Employee e) {
+
+        int status = 0;
+
+        sql = "update employee set name=?, designation=?,salary=? where id=?";
+
+        try {
+            ps = DbUtil.getCon().prepareStatement(sql);
+
+            ps.setString(1, e.getName());
+            ps.setString(2, e.getDesignation());
+            ps.setDouble(3, e.getSalary());
+            ps.setInt(5, e.getId());
+            
+             status = ps.executeUpdate();
+            System.out.println(status);
+            ps.close();
+            DbUtil.getCon().close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EmpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return status;
     }
 
 }
