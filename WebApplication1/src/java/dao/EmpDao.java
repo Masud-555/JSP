@@ -115,7 +115,7 @@ public class EmpDao {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("designation"),
-                        rs.getFloat("salary")
+                        rs.getDouble("salary")
                 );
 
             }
@@ -134,7 +134,7 @@ public class EmpDao {
 
         int status = 0;
 
-        sql = "update employee set name=?, designation=?,salary=? where id=?";
+        sql = "update employee set name=?,designation=?,salary=? where id=?";
 
         try {
             ps = DbUtil.getCon().prepareStatement(sql);
@@ -142,9 +142,9 @@ public class EmpDao {
             ps.setString(1, e.getName());
             ps.setString(2, e.getDesignation());
             ps.setDouble(3, e.getSalary());
-            ps.setInt(5, e.getId());
-            
-             status = ps.executeUpdate();
+            ps.setInt(4, e.getId());
+
+            status = ps.executeUpdate();
             System.out.println(status);
             ps.close();
             DbUtil.getCon().close();

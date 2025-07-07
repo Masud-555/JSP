@@ -4,7 +4,7 @@
 
 
 <%
-    String id=request.getParameter("id");
+    String id = request.getParameter("id");
     Employee e = EmpDao.getById(Integer.parseInt(id));
     
 %>
@@ -18,7 +18,7 @@
         <h1 class="jumborton">Update Employee</h1>
     </div>
     <!--    start form-->
-    <form action="index.jsp"  method="post">
+    <form action="editemployee.jsp"  method="post">
         <input type="hidden" name="id" value="<%=e.getId()%>" />
         <div class="row">
             <div class="col-md-6">
